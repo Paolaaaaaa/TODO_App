@@ -14,6 +14,10 @@ public class PeopleProyectPK implements Serializable{
 
 
 
+ public PeopleProyectPK(UUID idPerson, UUID idProyect) {
+        this.idPerson = idPerson;
+        this.idProyect = idProyect;
+    }
 
 
     /**

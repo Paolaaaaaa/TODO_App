@@ -19,6 +19,13 @@ public class PeopleProyectPermits {
 
     private Permit permitLvel;
 
+
+    public PeopleProyectPermits(PeopleProyectPK id, Permit permit){
+        this.id = id;
+        this.permitLvel = permit;
+
+    }
+
     /**
      * @return PeopleProyectPK return the id
      */
