@@ -4,15 +4,18 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.todo.demo.domain.repository.IProyectRepository;
 import com.todo.demo.persistence.crud.ProyectCrudRepository;
 import com.todo.demo.persistence.entities.Proyect;
 import com.todo.demo.persistence.entities.enums.PrivacyLevel;
 
 @Repository
-public class ProyectRepository {
+public class ProyectRepository implements IProyectRepository{
 
+    @Autowired
     private ProyectCrudRepository proyectRepository;
 
     public List<Proyect> getProyectsByPrivacyLevel(PrivacyLevel privacyLevel)

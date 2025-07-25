@@ -3,14 +3,17 @@ package com.todo.demo.persistence;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.todo.demo.domain.repository.IDocumentRepository;
 import com.todo.demo.persistence.crud.DocumentCrudRepository;
 import com.todo.demo.persistence.entities.Document;
 
 @Repository
-public class DocumentRepository {
+public class DocumentRepository implements IDocumentRepository{
     
+    @Autowired
     private DocumentCrudRepository documentCrudRepository;
 
 

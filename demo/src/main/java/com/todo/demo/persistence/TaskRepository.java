@@ -4,8 +4,10 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.todo.demo.domain.repository.ITaskRepository;
 import com.todo.demo.persistence.crud.TaskCrudRepository;
 import com.todo.demo.persistence.entities.Task;
 import com.todo.demo.persistence.entities.enums.ActionType;
@@ -14,9 +16,9 @@ import com.todo.demo.persistence.entities.enums.TaskType;
 
 
 @Repository
-public class TaskRepository {
+public class TaskRepository implements ITaskRepository {
     
-
+    @Autowired
     private TaskCrudRepository taskRespository;
 
 public List<Task> getAll() {

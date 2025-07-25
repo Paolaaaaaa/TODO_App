@@ -4,13 +4,18 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import com.todo.demo.domain.repository.INotificationRepository;
 import com.todo.demo.persistence.crud.NotificationCrudRepository;
 import com.todo.demo.persistence.entities.Notification;
 
 @Repository
-public class NotificationRepository {
+public class NotificationRepository implements INotificationRepository{
+    
+    
+    @Autowired
     private NotificationCrudRepository notificationRespository;
 
 
