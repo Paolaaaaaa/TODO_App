@@ -16,7 +16,8 @@ public class Document {
     @Id
 
     @GeneratedValue
-    private UUID id;    private String nombre;
+    private UUID id;    
+    private String nombre;
     private String url;
     private String description;
     private LocalDateTime creationDate; 
@@ -80,6 +81,35 @@ public class Document {
      */
     public void setCreationDate(LocalDateTime creationDate) {
         this.creationDate = creationDate;
+    }
+
+
+    /**
+     * @return UUID return the id
+     */
+    public UUID getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    /**
+     * @return Task return the task
+     */
+    public Task getTask() {
+        return task;
+    }
+
+    /**
+     * @param task the task to set
+     */
+    public void setTask(Task task) {
+        this.task = task;
     }
 
 }

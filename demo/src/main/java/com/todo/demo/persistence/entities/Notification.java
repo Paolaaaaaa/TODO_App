@@ -76,4 +76,47 @@ public class Notification {
         this.creationDate = creationDate;
     }
 
+
+    /**
+     * @return UUID return the id
+     */
+    public UUID getId() {
+        return id;
+    }
+
+    /**
+     * @param id the id to set
+     */
+    public void setId(UUID id) {
+        this.id = id;
+    }
+
+    /**
+     * @return Task return the task
+     */
+    public Task getTask() {
+        return task;
+    }
+
+    /**
+     * @param task the task to set
+     */
+    public void setTask(Task task) {
+        this.task = task;
+    }
+
+    /**
+     * @return List<Person> return the peopleNotified
+     */
+    public List<Person> getPeopleNotified() {
+        return peopleNotified;
+    }
+
+    /**
+     * @param peopleNotified the peopleNotified to set
+     */
+    public void setPeopleNotified(List<Person> peopleNotified) {
+        this.peopleNotified = peopleNotified;
+    }
+
 }

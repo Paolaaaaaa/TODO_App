@@ -11,4 +11,6 @@ import com.todo.demo.persistence.entities.enums.PrivacyLevel;
 public interface ProyectCrudRepository extends CrudRepository<Proyect,UUID> {
     List<Proyect> findByPrivacyLevel(PrivacyLevel privacyLevel);
 
+   
+
 }

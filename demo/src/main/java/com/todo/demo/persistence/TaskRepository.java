@@ -22,22 +22,22 @@ public class TaskRepository {
 public List<Task> getAll() {
     return taskRespository.findAllByOrderByCreationDateAsc();
 }
-    public List<Task> getByTaskTypeAndPerson (UUID id_person, TaskType taskType){
-        return taskRespository.findByTaskTypeAndPersonId(taskType, id_person);
+    public List<Task> getByTaskTypeAndPersonAndProject (UUID id_person, TaskType taskType, UUID id_project){
+        return taskRespository.findByTaskTypeAndPersonIdAndProject(taskType, id_person,id_project);
     }
 
 
-    public List<Task> getByActionTypeAndIdPerson( UUID id_person, ActionType actionType){
-        return taskRespository.findByActionTypeAndPersonId(actionType, id_person);
+    public List<Task> getByActionTypeAndIdPersonAndProject( UUID id_person, ActionType actionType, UUID id_project){
+        return taskRespository.findByActionTypeAndPersonIdAndProject(actionType, id_person,id_project);
     }
 
 
-    public List<Task> getByStatusAndIdPerson(UUID id_person, Status status){
-        return taskRespository.findByStatusAndPersonId(status, id_person);
+    public List<Task> getByStatusAndIdPersonAndProject(UUID id_person, Status status,UUID id_project){
+        return taskRespository.findByStatusAndPersonIdAndProject(status, id_person, id_project);
     }
 
-    public List<Task> getByParentIdAndIdPerson (UUID id_parent,UUID id_person){
-        return taskRespository.findByParentIdAndPersonId(id_parent, id_person);
+    public List<Task> getByParentIdAndIdPersonAndProject (UUID id_parent,UUID id_person, UUID id_project){
+        return taskRespository.findByParentIdAndPersonIdAndProject(id_parent, id_person, id_project);
     }
 
     public Optional<Task> getTask(UUID id_task){
@@ -46,18 +46,25 @@ public List<Task> getAll() {
 
     }
 
+
+
+    public List<Task> getAllbyPersonAndProject( UUID id_person,UUID id_project) {
+        return taskRespository.findByPersonIdAndProjectId(id_person,id_project);
+    }
+
     
 
     public Task createTask (Task task){
         return taskRespository.save(task);
     }
 
-    public Task updateTask (Task task){
+    public Task updateTask (Task task, UUID id){
+        task.setId(id);
         return taskRespository.save(task);
     }
 
 
-    public void delere (UUID id_task){
+    public void delete (UUID id_task){
         taskRespository.deleteById(id_task);
     }
 
