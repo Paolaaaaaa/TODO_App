@@ -7,7 +7,6 @@ import java.util.UUID;
 
 
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinTable;
@@ -18,8 +17,6 @@ public class Person {
 
 
     @Id
-
-    @GeneratedValue
     private UUID id;
     private String name;
     private String description;
@@ -29,6 +26,13 @@ public class Person {
 
     private String password;
 
+    public List<Task> getTasks() {
+        return tasks;
+    }
+
+    public void setTasks(List<Task> tasks) {
+        this.tasks = tasks;
+    }
 
     @ManyToMany
     @JoinTable( name =  "person_tasks", joinColumns = @JoinColumn(name ="person_id"),

@@ -49,6 +49,11 @@ public List<Task> getAll() {
     }
 
 
+    public List<Task> getByIdProject (UUID id_project){
+        return taskRespository.findByProjectId(id_project);
+    }
+
+
 
     public List<Task> getAllbyPersonAndProject( UUID id_person,UUID id_project) {
         return taskRespository.findByPersonIdAndProjectId(id_person,id_project);

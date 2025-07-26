@@ -11,7 +11,7 @@ public interface IPersonRepository {
 
          List<Person> getPersons ();
      Optional<Person> getPerson(UUID id_person);
-     List<Person> getPersonsByEmail(String email);
+     Optional<Person>  getPersonsByEmail(String email);
      List<Person> getPersonsByCellphone(String cellphone);
      List<Person> getPersonsByName(String name);
      Person createPerson(Person person);
