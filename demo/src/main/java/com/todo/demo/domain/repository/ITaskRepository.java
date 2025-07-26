@@ -17,6 +17,7 @@ public interface ITaskRepository {
 
 List<Task> getByStatusAndIdPersonAndProject(UUID id_person, Status status,UUID id_project);
 
+List<Task> getByIdProject(UUID id_project);
 
  List<Task> getByParentIdAndIdPersonAndProject (UUID id_parent,UUID id_person, UUID id_project);
  Optional<Task> getTask(UUID id_task);

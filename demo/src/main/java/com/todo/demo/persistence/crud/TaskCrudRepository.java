@@ -20,6 +20,12 @@ List<Task> findAllByOrderByCreationDateAsc();
 
 
 
+@Query("SELECT t FROM Task t  WHERE  t.project.id = :projectId ORDER BY t.creationDate")
+List<Task> findByProjectId(
+    @Param("projectId") UUID projectId);
+
+
+
 @Query("SELECT t FROM Task t JOIN t.assignedPersons p WHERE p.id = :personId AND t.project.id = :projectId ORDER BY t.creationDate")
 List<Task> findByPersonIdAndProjectId(
     @Param("personId") UUID personId, 

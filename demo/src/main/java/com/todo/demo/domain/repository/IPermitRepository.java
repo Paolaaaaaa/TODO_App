@@ -1,6 +1,7 @@
 package com.todo.demo.domain.repository;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import com.todo.demo.persistence.entities.PeopleProyectPermits;
@@ -14,5 +15,7 @@ public interface IPermitRepository {
 
  PeopleProyectPermits update(UUID idPerson, UUID idProject, Permit newPermit);
    void delete(UUID idPerson, UUID idProject) ;
+
+   Optional<PeopleProyectPermits> getPermit ( UUID idProject, UUID idPerson);
 
 }

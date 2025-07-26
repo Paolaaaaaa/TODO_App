@@ -236,10 +236,10 @@ public class Task {
     }
 
     /**
-     * @param proyect the proyect to set
+     * @param proyectfound the proyect to set
      */
-    public void setProyect(Proyect proyect) {
-        this.proyect = proyect;
+    public void setProyect(Proyect proyectfound) {
+        this.proyect = proyectfound;
     }
 
     /**

@@ -27,8 +27,8 @@ public class PersonRepository implements IPersonRepository{
     }
 
 
-    public List<Person> getPersonsByEmail(String email){
-        return personCrudRespository.findByEmail(email);
+    public Optional<Person>  getPersonsByEmail(String email){
+        return (personCrudRespository.findByEmail(email));
     }
 
     public List<Person> getPersonsByCellphone(String cellphone){

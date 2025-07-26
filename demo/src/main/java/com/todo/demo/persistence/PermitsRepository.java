@@ -1,6 +1,7 @@
 package com.todo.demo.persistence;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,13 @@ public List<PeopleProyectPermits> getPermitsByPerson ( UUID idProject){
     return permitsRepository.findByIdPersonId(idProject);
 }
 
+
+public Optional<PeopleProyectPermits> getPermit ( UUID idProject, UUID idPerson){
+
+        PeopleProyectPK pk = new PeopleProyectPK(idPerson, idProject);
+
+    return permitsRepository.findById(pk);
+}
 
 public PeopleProyectPermits createPermit (UUID idPerson, UUID idProject, Permit newPermit){
     PeopleProyectPK pk = new PeopleProyectPK(idPerson, idProject);
