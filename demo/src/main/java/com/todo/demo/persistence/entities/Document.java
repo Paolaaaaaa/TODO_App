@@ -3,6 +3,8 @@ package com.todo.demo.persistence.entities;
 import java.time.LocalDateTime;
 import java.util.UUID;
 
+import org.hibernate.annotations.CreationTimestamp;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
@@ -20,6 +22,8 @@ public class Document {
     private String nombre;
     private String url;
     private String description;
+    @CreationTimestamp
+
     private LocalDateTime creationDate; 
 
     @ManyToOne

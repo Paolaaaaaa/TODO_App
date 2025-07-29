@@ -9,7 +9,10 @@ import com.todo.demo.persistence.entities.PeopleProyectPermits;
 import com.todo.demo.persistence.entities.enums.Permit;
 
 import jakarta.persistence.EntityNotFoundException;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PermitService {
 
 
@@ -17,6 +20,7 @@ public class PermitService {
 
 
 
+    @Autowired
     private PermitsRepository permitsRepository;
 
 public List<PeopleProyectPermits> getPermitsByProyect(UUID id_project) {

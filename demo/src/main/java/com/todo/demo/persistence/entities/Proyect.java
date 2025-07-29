@@ -1,7 +1,10 @@
 package com.todo.demo.persistence.entities;
 
+import java.time.LocalDate;
 import java.util.List;
 import java.util.UUID;
+
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.todo.demo.persistence.entities.enums.PrivacyLevel;
 
@@ -21,7 +24,8 @@ public class Proyect {
     private String title; 
     private String description;
     private PrivacyLevel privacyLevel;
-
+    @CreationTimestamp
+    private LocalDate creationDate;
 
     @OneToMany(mappedBy = "proyect")
     private List<Task> tasks;

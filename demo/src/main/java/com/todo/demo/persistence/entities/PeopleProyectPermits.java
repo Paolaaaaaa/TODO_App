@@ -26,6 +26,10 @@ public class PeopleProyectPermits {
 
     }
 
+    public PeopleProyectPermits() {
+
+    }
+
     /**
      * @return PeopleProyectPK return the id
      */

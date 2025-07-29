@@ -46,7 +46,7 @@ public class JwtUtil {
     }
 
     private boolean isTokenExpired(String token) {
-        Date expiration = JWT.require(Algorithm.HMAC256(token))
+        Date expiration = JWT.require(Algorithm.HMAC256(secretKey))
             .build()
             .verify(token)
             .getExpiresAt();

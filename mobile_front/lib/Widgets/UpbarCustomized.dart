@@ -8,7 +8,7 @@ class UpbarCustomized extends StatelessWidget{
   final Color textIconsColor;
   final Color backgroundColor;
 
-  const UpbarCustomized({
+  const UpbarCustomized({super.key, 
     required this.title,
     required this.textIconsColor,
     required this.backgroundColor

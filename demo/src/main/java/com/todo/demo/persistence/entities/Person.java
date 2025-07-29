@@ -5,7 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.hibernate.annotations.CreationTimestamp;
 
+import io.micrometer.common.lang.NonNull;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -18,11 +20,18 @@ public class Person {
 
     @Id
     private UUID id;
+    @NonNull
     private String name;
+    @NonNull
     private String description;
+     @NonNull   
     private String email;
+     @NonNull
+
     private String cellphone;
-    private LocalDate creatioDate;
+    @CreationTimestamp
+    private LocalDate creationDate;
+    @NonNull
 
     private String password;
 
@@ -40,9 +49,10 @@ public class Person {
     private List<Task> tasks;
 
 
+
     @ManyToMany
     @JoinTable(
-        name="notification_Person",
+        name="peopleNotified",
         joinColumns = @JoinColumn(name = "person_id"),
         inverseJoinColumns = @JoinColumn(name="notification_id")
     )
@@ -105,20 +115,7 @@ public class Person {
         this.cellphone = cellphone;
     }
 
-    /**
-     * @return LocalDate return the creatioDate
-     */
-    public LocalDate getCreatioDate() {
-        return creatioDate;
-    }
-
-    /**
-     * @param creatioDate the creatioDate to set
-     */
-    public void setCreatioDate(LocalDate creatioDate) {
-        this.creatioDate = creatioDate;
-    }
-
+ 
 
     /**
      * @return String return the password
@@ -147,6 +144,28 @@ public class Person {
      */
     public void setId(UUID id) {
         this.id = id;
+    }
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
+    }
+
+
+    /**
+     * @return LocalDate return the creationDate
+     */
+    public LocalDate getCreationDate() {
+        return creationDate;
+    }
+
+    /**
+     * @param creationDate the creationDate to set
+     */
+    public void setCreationDate(LocalDate creationDate) {
+        this.creationDate = creationDate;
     }
 
 }

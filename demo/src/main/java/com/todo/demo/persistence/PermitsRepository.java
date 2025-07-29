@@ -29,11 +29,11 @@ private PermitsCrudRepository permitsRepository;
 
 
 public List<PeopleProyectPermits> getPermitsByProject ( UUID idProject){
-    return permitsRepository.findByIdProyectId(idProject);
+    return permitsRepository.findById_IdProyect(idProject);
 }
 
 public List<PeopleProyectPermits> getPermitsByPerson ( UUID idProject){
-    return permitsRepository.findByIdPersonId(idProject);
+    return permitsRepository.findById_IdPerson(idProject);
 }
 
 

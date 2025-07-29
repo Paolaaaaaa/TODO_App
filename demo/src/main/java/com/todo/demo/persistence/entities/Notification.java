@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.hibernate.annotations.CreationTimestamp;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -17,15 +18,14 @@ import jakarta.persistence.ManyToOne;
 public class Notification {
 
      @Id
-   
-    @GeneratedValue
-    private UUID id;
+     private UUID id;
     private String title;
     private String description;
+    @CreationTimestamp
     private LocalDateTime creationDate;
     
     @ManyToOne
-    @JoinColumn(name = "task_id", insertable = false, updatable = false )
+    @JoinColumn(name= "task", insertable = false, updatable = false)
     private Task task;
 
     @ManyToMany

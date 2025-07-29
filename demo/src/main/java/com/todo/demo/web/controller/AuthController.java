@@ -1,5 +1,7 @@
 package com.todo.demo.web.controller;
 
+import com.todo.demo.domain.dto.AuthResponseDTO;
+import org.springframework.security.web.webauthn.api.AuthenticatorResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -13,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 
 
 @RestController
-@RequestMapping("/auth")
+@RequestMapping("/v1/auth")
 public class AuthController {
 
 
@@ -21,9 +23,9 @@ public class AuthController {
     private AuthService authService;
 
     @PostMapping("/signup")
-    public ResponseEntity<String> signup(@RequestBody PersonDTO request) {
-        authService.registerUser(request);
-        return ResponseEntity.ok("Usuario creado exitosamente");
+    public ResponseEntity<AuthResponseDTO> signup(@RequestBody PersonDTO request) {
+        AuthResponseDTO respose =authService.registerUserWithToken(request);
+        return ResponseEntity.ok(respose);
     }
 
     // @PostMapping("/login")

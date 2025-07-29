@@ -9,7 +9,8 @@ import com.todo.demo.persistence.entities.PeopleProyectPK;
 import com.todo.demo.persistence.entities.PeopleProyectPermits;
 
 public interface PermitsCrudRepository extends CrudRepository<PeopleProyectPermits,PeopleProyectPK> {
-       List<PeopleProyectPermits> findByIdPersonId(UUID idPerson);
-        List<PeopleProyectPermits> findByIdProyectId(UUID idProyect);
+    List<PeopleProyectPermits> findById_IdPerson(UUID idPerson);
+
+    List<PeopleProyectPermits> findById_IdProyect(UUID idProyect);
 
 }

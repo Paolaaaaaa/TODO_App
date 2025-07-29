@@ -23,17 +23,17 @@ public class PersonNotificationService {
     private PersonRepository personRepository;
 
 
-    public List<Notification> getNotificationsByPersonId (UUID id_person){
-
-        Person personFound = personRepository.getPerson(id_person)
-        .orElseThrow(() -> new EntityNotFoundException("Person with ID " + id_person + " does not exist"));
-
-        
-        List<Notification> notifications = notificationRepository.getByPersonId(personFound.getId());
-
-        return notifications;
-
-    }
+//    public List<Notification> getNotificationsByPersonId (UUID id_person){
+//
+//        Person personFound = personRepository.getPerson(id_person)
+//        .orElseThrow(() -> new EntityNotFoundException("Person with ID " + id_person + " does not exist"));
+//
+//
+//        List<Notification> notifications = notificationRepository.getByPersonId(personFound.getId());
+//
+//        return notifications;
+//
+//    }
 
 
    
