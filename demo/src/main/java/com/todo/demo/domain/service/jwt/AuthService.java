@@ -51,7 +51,7 @@ public class AuthService {
 
     }
 
-    public String login(LoginDTO person) {
+    public AuthResponseDTO loginwithToken(LoginDTO person) {
         Person user = personRepository.getPersonsByEmail(person.getEmail())
                 .orElseThrow(() -> new EntityNotFoundException("Invalid user"));
 
@@ -59,7 +59,7 @@ public class AuthService {
             throw new RuntimeException("Incorrect password");
         }
 
-        return jwtUtil.generateTocken(user.getEmail());
+        return new AuthResponseDTO(jwtUtil.generateTocken(user.getEmail()), user.getId(), user.getEmail());
     }
 
 

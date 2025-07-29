@@ -1,6 +1,8 @@
 package com.todo.demo.web.controller;
 
 import com.todo.demo.domain.dto.AuthResponseDTO;
+import com.todo.demo.domain.dto.LoginDTO;
+
 import org.springframework.security.web.webauthn.api.AuthenticatorResponse;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,11 +30,11 @@ public class AuthController {
         return ResponseEntity.ok(respose);
     }
 
-    // @PostMapping("/login")
-    // public ResponseEntity<AuthResponse> login(@RequestBody LoginRequest request) {
-    //     String token = authService.authenticate(request);
-    //     return ResponseEntity.ok(new AuthResponse(token));
-    // }
+    @PostMapping("/login")
+    public ResponseEntity<AuthResponseDTO> login(@RequestBody LoginDTO request) {
+        AuthResponseDTO respose = authService.loginwithToken(request);
+        return ResponseEntity.ok(respose);
+    }
     
     
 }
