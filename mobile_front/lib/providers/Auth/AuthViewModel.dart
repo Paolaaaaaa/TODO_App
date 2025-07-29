@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front/Services/auth_Service.dart';
 import 'package:mobile_front/models/Auth/AuthResponse.dart';
+import 'package:mobile_front/models/Auth/LogIn/LoginRequest.dart';
 import 'package:mobile_front/models/Auth/Registration/RegisterRequest.dart';
 
 class AuthViewModel with ChangeNotifier {
@@ -20,6 +21,16 @@ class AuthViewModel with ChangeNotifier {
     return response;
 
 
+  }
+
+
+  Future<AuthResponse?> login(LoginRequest request) async{
+  _isLoading =true;
+    notifyListeners();
+    final response = await _authService.login(request);
+    _isLoading =false;
+    notifyListeners();
+    return response;
   }
   
 }

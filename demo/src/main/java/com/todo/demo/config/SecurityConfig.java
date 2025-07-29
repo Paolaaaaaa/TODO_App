@@ -16,7 +16,7 @@ public class SecurityConfig{
         http
             .csrf().disable()
             .authorizeHttpRequests()
-                .requestMatchers("v1/auth/signup", "/login").permitAll()
+                .requestMatchers("v1/auth/signup", "v1/auth/login").permitAll()
                 .anyRequest().authenticated()
             .and()
                 .httpBasic(); // O usa JWT aquí si lo tienes configurado
