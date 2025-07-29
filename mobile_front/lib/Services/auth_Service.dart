@@ -6,7 +6,7 @@ import 'package:mobile_front/models/Auth/AuthResponse.dart';
 import 'package:mobile_front/models/Auth/Registration/RegisterRequest.dart';
 
 class AuthService {
-  final String _baseUrl = dotenv.env['API_URL'] ?? 'http://localhost:8080';
+  final String _baseUrl = dotenv.env['API_URL'] ?? 'http://10.0.2.2:8080/api';
 
   Future<String?> login(String email, String password) async {
     final url = Uri.parse('$_baseUrl/v1/auth/login');
@@ -49,7 +49,7 @@ class AuthService {
         return AuthResponse(error: errorMsg, token: '', email: '', id: '');
       }
     } catch (e) {
-      return AuthResponse(error: 'Failed to connect to server', token: '', email: '', id: '');
+      return AuthResponse(error: 'Failed to complete the registration, please try another time $e', token: '', email: '', id: '');
     }
   }
 }

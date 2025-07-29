@@ -29,6 +29,15 @@ static String? validateEmail(String? value) {
   }
 
 
+
+  static String? validateDescription(String? value){
+    if (value == null || value.isEmpty) {
+      return 'Please enter your description.';
+    }
+    return null;
+  }
+
+
   static String? validatePasswordLogIn(String? value){
     if (value == null || value.isEmpty) {
       return 'Please enter your password.';

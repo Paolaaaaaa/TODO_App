@@ -15,6 +15,7 @@ class SignInScreen extends StatelessWidget {
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
+  final TextEditingController descriptionController = TextEditingController();
 
   final TextEditingController cellphonController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
@@ -46,6 +47,7 @@ class SignInScreen extends StatelessWidget {
                   ),
 
                   _buildName(),
+                  _buildDescription(),
                   _buildEmail(),
                   _buildCellphone(),
                   _buildPassword(),
@@ -72,6 +74,25 @@ class SignInScreen extends StatelessWidget {
         controller: nameController,
         keyboardType: TextInputType.name,
         hintText: 'Full Name',
+        obscureText: false,
+      ),
+    ));
+  }
+
+
+
+  Widget _buildDescription() {
+    return (Container(
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+      child: CustomTextfield(
+        validator: Signinvalidators.validateDescription,
+
+        lable: 'Description',
+        backgroundColor: AppColors.primary,
+        textColor: AppColors.base100,
+        controller: descriptionController,
+        keyboardType: TextInputType.name,
+        hintText: 'Describe yourself',
         obscureText: false,
       ),
     ));
@@ -162,11 +183,14 @@ class SignInScreen extends StatelessWidget {
               email: emailController.text,
               cellphone: cellphonController.text,
               password: passwordController.text,
+              description: descriptionController.text
             );
 
             AuthResponse? response = await authViewModel.register(request);
 
-            if (response?.error != null) {
+            if ( response?.error.toString() =='null') {
+
+              print('$response.error');
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
@@ -174,6 +198,7 @@ class SignInScreen extends StatelessWidget {
                     email: response?.email,
                     id: response!.id,
                     token: response.token,
+                    error: response.error,
                   ),
                 ),
               );
@@ -182,7 +207,7 @@ class SignInScreen extends StatelessWidget {
                 context: context,
                 builder: (_) => AlertDialog(
                   title: Text('Registration Failed'),
-                  content: Text(response?.error ?? 'something went wrong.'),
+                  content: Text(response!.error.toString() ),
                   actions: [
                     TextButton(
                       onPressed: () => Navigator.pop(context),

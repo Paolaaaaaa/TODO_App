@@ -22,7 +22,7 @@ class AuthResponse {
     return AuthResponse(
       token: json['token'] ?? '',
       email: json['email'] ?? '',
-      id: json['id'] ?? '',
+      id: json['uuid'] ?? '',
     );}
 
 

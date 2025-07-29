@@ -5,7 +5,6 @@ import com.todo.demo.persistence.entities.Person;
 public class PersonValidator {
 
     private static final String EMAIL_REGEX = "^[A-Za-z0-9+_.-]+@[A-Za-z0-9.-]+$";
-    private static final String CELLPHONE_REGEX = "^[0-9]{10}$"; 
 
     public static void validate(Person person) {
         if (person == null) {
@@ -20,7 +19,7 @@ public class PersonValidator {
             throw new IllegalArgumentException("Every person should have a description");
         }
 
-        if (person.getCellphone() == null || !person.getCellphone().matches(CELLPHONE_REGEX)) {
+        if (person.getCellphone() == null ) {
             throw new IllegalArgumentException("Cellphone number must be 10 digits");
         }
 

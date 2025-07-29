@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.hibernate.annotations.CreationTimestamp;
 
 import com.todo.demo.persistence.entities.enums.ActionType;
 import com.todo.demo.persistence.entities.enums.Status;
@@ -39,7 +40,7 @@ public class Task {
     private ActionType actionType;
 
     private Integer hoursNeeded;
-
+    @CreationTimestamp
     private LocalDateTime creationDate;
 
     private LocalDateTime finalizationDateTime;

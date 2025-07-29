@@ -60,7 +60,6 @@ public Person createPerson ( Person newPerson){
 
 
 
-    newPerson.setCreatioDate(LocalDate.now());
     
 
     return personRepository.createPerson(newPerson);

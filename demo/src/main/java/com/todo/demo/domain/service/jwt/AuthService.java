@@ -41,6 +41,7 @@ public class AuthService {
         user.setDescription(person.getDescription());
         user.setEmail(person.getEmail());
         user.setPassword(encoder.encode(person.getPassword()));
+        user.setName(person.getName());
 
         PersonValidator.validate(user);
         Person createdUser=personRepository.createPerson(user);
