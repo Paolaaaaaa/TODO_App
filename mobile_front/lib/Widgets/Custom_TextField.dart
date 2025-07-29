@@ -32,10 +32,7 @@ class CustomTextfield extends StatelessWidget{
   @override
   Widget build (BuildContext context){
 
-    return Column(
-
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
+    return 
 
         TextFormField(
           
@@ -48,15 +45,24 @@ class CustomTextfield extends StatelessWidget{
           validator:validator,
           
           
+          
+          
      decoration: InputDecoration(
             hintText: hintText ,
-            hintStyle: TextStyle(color: textColor?.withOpacity(0.5)),
+            hintStyle: TextStyle(color: textColor.withOpacity(0.5)),
             labelStyle: TextStyle(color: textColor),
             filled: true,
             fillColor: backgroundColor, // light background
             contentPadding: const EdgeInsets.symmetric(vertical: 16, horizontal: 12),
-            
-            
+          
+            enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: BorderSide(color: textColor),
+            ),
+            focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(30),
+              borderSide: const BorderSide(color: AppColors.info, width: 2),
+            ),
             
           
             
@@ -71,9 +77,8 @@ class CustomTextfield extends StatelessWidget{
 
           ),
         
-        )
-      ],
-    );
+        );
+     
   }
   
 }

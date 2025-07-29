@@ -8,6 +8,7 @@ class CustomButton extends StatelessWidget{
   final Color textColor;
 
   const CustomButton({
+    super.key, 
     required this.text,
     required this.onPressed,
     this.backgroundColor = AppColors.primary,

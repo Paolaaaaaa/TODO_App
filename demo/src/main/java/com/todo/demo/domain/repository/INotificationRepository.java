@@ -8,7 +8,6 @@ import com.todo.demo.persistence.entities.Notification;
 
 public interface INotificationRepository {
 
-         List<Notification> getByPersonId(UUID id);
 
          Optional<Notification> getById (UUID id);
      Notification create(Notification notification);

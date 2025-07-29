@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 
 @RestController
-@RequestMapping("/api/proyect")
+@RequestMapping("/v1/proyect")
 public class ProyectController {
 
 

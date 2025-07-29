@@ -40,9 +40,10 @@ public class Person {
     private List<Task> tasks;
 
 
+
     @ManyToMany
     @JoinTable(
-        name="notification_Person",
+        name="peopleNotified",
         joinColumns = @JoinColumn(name = "person_id"),
         inverseJoinColumns = @JoinColumn(name="notification_id")
     )
@@ -147,6 +148,13 @@ public class Person {
      */
     public void setId(UUID id) {
         this.id = id;
+    }
+    public List<Notification> getNotifications() {
+        return notifications;
+    }
+
+    public void setNotifications(List<Notification> notifications) {
+        this.notifications = notifications;
     }
 
 }

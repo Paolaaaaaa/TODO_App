@@ -13,7 +13,9 @@ import com.todo.demo.persistence.ProyectRepository;
 import com.todo.demo.persistence.entities.PeopleProyectPermits;
 import com.todo.demo.persistence.entities.Proyect;
 import com.todo.demo.persistence.entities.enums.Permit;
+import org.springframework.stereotype.Service;
 
+@Service
 public class ProyectService {
 
 

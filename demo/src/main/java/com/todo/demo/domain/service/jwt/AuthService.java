@@ -3,7 +3,9 @@ package com.todo.demo.domain.service.jwt;
 import java.util.UUID;
 
 import com.todo.demo.JwtSecurity.JwtUtil;
+import com.todo.demo.domain.dto.AuthResponseDTO;
 import com.todo.demo.domain.dto.LoginDTO;
+import com.todo.demo.domain.service.validator.PersonValidator;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -31,7 +33,7 @@ public class AuthService {
     private JwtUtil jwtUtil;
 
 
-    public Person registerUser(PersonDTO person){
+    public AuthResponseDTO registerUserWithToken(PersonDTO person){
 
         Person user = new Person();
         user.setId(UUID.randomUUID());
@@ -40,7 +42,10 @@ public class AuthService {
         user.setEmail(person.getEmail());
         user.setPassword(encoder.encode(person.getPassword()));
 
-        return personRepository.createPerson(user);
+        PersonValidator.validate(user);
+        Person createdUser=personRepository.createPerson(user);
+        String token = jwtUtil.generateTocken(user.getEmail());
+        return new AuthResponseDTO(token, createdUser.getId(), createdUser.getEmail());
         
 
     }

@@ -27,7 +27,6 @@ public class Task {
 
 
     @Id
-     @GeneratedValue
     private UUID id;
 
     @Column(length = 100)
@@ -71,7 +70,7 @@ public class Task {
     @OneToMany(mappedBy = "task", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Document> documents = new ArrayList<>();
 
-    @OneToMany(mappedBy = "notifications", cascade =CascadeType.ALL, orphanRemoval= true)
+    @OneToMany(mappedBy = "id", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Notification> notifications = new ArrayList<>();
 
 

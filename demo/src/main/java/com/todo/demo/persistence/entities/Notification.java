@@ -17,15 +17,13 @@ import jakarta.persistence.ManyToOne;
 public class Notification {
 
      @Id
-   
-    @GeneratedValue
-    private UUID id;
+     private UUID id;
     private String title;
     private String description;
     private LocalDateTime creationDate;
     
     @ManyToOne
-    @JoinColumn(name = "task_id", insertable = false, updatable = false )
+    @JoinColumn(name= "task", insertable = false, updatable = false)
     private Task task;
 
     @ManyToMany

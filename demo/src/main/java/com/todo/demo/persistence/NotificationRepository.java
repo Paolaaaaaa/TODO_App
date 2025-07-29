@@ -20,10 +20,7 @@ public class NotificationRepository implements INotificationRepository{
 
 
 
-    public List<Notification> getByPersonId(UUID id){
-        return notificationRespository.findByPersonId(id);
 
-    }
 
 
     public Optional<Notification> getById (UUID id){
