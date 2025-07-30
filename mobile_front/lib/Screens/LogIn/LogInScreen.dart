@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_front/Screens/Home/HomeScreen.dart';
 import 'package:mobile_front/Screens/SignIn/SignInValidators.dart';
+import 'package:mobile_front/Widgets/BottomNavScreen.dart';
 import 'package:mobile_front/Widgets/Custom_TextField.dart';
 import 'package:mobile_front/Widgets/Custom_button.dart';
 import 'package:mobile_front/Widgets/UpbarCustomized.dart';
@@ -112,12 +113,7 @@ class LogInScreen extends StatelessWidget {
               Navigator.pushReplacement(
                 context,
                 MaterialPageRoute(
-                  builder: (context) => Homescreen(
-                    email: response?.email,
-                    id: response!.id,
-                    token: response.token,
-                    error: response.error,
-                  ),
+                  builder: (context) => BottomNavScreen(),
                 ),
               );
             } else {

@@ -10,7 +10,7 @@ class AuthService {
   final String _baseUrl = dotenv.env['API_URL'] ?? 'http://10.0.2.2:8080/api';
 
   Future<AuthResponse?> login(LoginRequest request) async {
-    final url = Uri.parse('$_baseUrl/v1/auth/login');
+    try {final url = Uri.parse('$_baseUrl/v1/auth/login');
 
     final response = await http.post(
       url,
@@ -28,7 +28,18 @@ class AuthService {
         error: null,
       );
     } else {
-      return null;
+        final errorMsg =
+            jsonDecode(response.body)['message'] ?? 'Unknown error';
+        return AuthResponse(error: errorMsg, token: '', email: '', id: '');
+      }}
+     catch (e) {
+      return AuthResponse(
+        error:
+            'Failed to complete the login, please try another time $e',
+        token: '',
+        email: '',
+        id: '',
+      );
     }
   }
 
